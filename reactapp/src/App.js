@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import logo from './logo.svg';
 import './App.css';
+=======
+
+>>>>>>> ac417da4bb6931c301d501f4edcacc05541b12d4
 
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -18,6 +23,8 @@ function App() {
           Learn React
         </a>
       </header>
+=======
+>>>>>>> ac417da4bb6931c301d501f4edcacc05541b12d4
     </div>
   );
 }
