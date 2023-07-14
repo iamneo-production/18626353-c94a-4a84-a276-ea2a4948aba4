@@ -1,0 +1,108 @@
+.studenteditform-container {
+    margin-left: 300px;
+    margin-right: 250px;
+    width: 950px;
+    border-radius: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 0px;
+      background-color: rgb(133, 161, 165);
+    
+  } 
+   .left-column {
+      grid-column: 1 / 2;
+  }
+  
+  .right-column {
+      grid-column: 2 / 3; 
+  } 
+  .studenteditform-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+  .Stueditdemo {
+    margin-bottom: 15px;
+    display: grid;
+     align-items: center;
+    justify-content: center; 
+  }
+  .Stueditdemo input[type="text"],
+  .Stueditdemo input[type="number"] {
+    height: 40px;
+    width: 350px;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+
+}
+.studenteditform-container select{
+  height: 40px;
+  width: 350px;
+  text-align: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid white;
+  margin-bottom: 15px;
+}
+  
+  
+
+  .Stueditdemo input[type="text"]
+  {
+   
+    border: 2px solid white;
+    
+  }
+    .Stueditdemo input[type="number"] {
+    margin-right: 3px;
+    margin-left: 0px;
+    border: 2px solid white;
+    }
+  
+  
+
+  .editstu1{
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(to bottom, #b0e0e6, #b0e0e6);
+    background-color: 50 #b0e0e6;
+    color: white;
+    margin: 1px;
+    font-size: 15px;
+    padding: 5px;
+  }
+  
+  .editstu2{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: black;
+    font-size: 20px;
+  }
+    
+   .Edit-student-button {
+      border-radius: 10px;
+      color: white;
+      background-color: blue;
+      padding: 6px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      border: none;
+      width: 9%;
+    }
+    .Edit-student-button:hover{
+      color: white;
+      font-weight: bold;
+    }
+    
+    .error {
+      font-size: medium;
+      color: red;
+      
+    }
