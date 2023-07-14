@@ -1,0 +1,156 @@
+.studentedit-container {
+  
+    margin-top: 20px;
+       margin-left: 310px;
+      width: 950px;
+      border-radius:10px;
+      padding: 20px; 
+     
+  
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+       grid-gap: 0px;
+       background-image: linear-gradient(to bottom,#18a9a6,#a3ada8);
+  
+   } 
+    .left-column {
+       grid-column: 1 / 2;
+   }
+   
+   .right-column {
+       grid-column: 2 / 3; 
+   } 
+   .studentedit-container label {
+     display: block;
+     font-weight: bold;
+     margin-bottom: 0px;
+  }
+  
+   .enrollform {
+     margin-bottom: 15px;
+     display: grid;
+      align-items: center;
+     justify-content: center; 
+   }
+   .enrollform input[type="text"],
+   .enrollform input[type="number"] {
+     height: 40px;
+     width: 350px;
+     text-align: center;
+     justify-content: center;
+     background-color: white;
+     border-radius: 10px;
+  
+  }
+  
+  
+  
+   
+
+  
+   .enrollform input[type="text"]
+   {
+    
+     border: 2px solid white;
+     
+   }
+   .enrollform input[type="number"] {
+    
+     margin-left: 0px;
+     border: 2px solid white;
+     
+   }
+   
+   .name-input::placeholder {
+     color: black;
+     grid-column: 1/2;
+   
+   }
+   
+   .age-input::placeholder {
+     color: black;
+     grid-column: 1/2;
+   }
+  
+   .gender-input::placeholder {
+     color: black;
+   }
+  
+   .phonenumber-input::placeholder {
+     color: black; 
+   }
+  
+   .altphnumber-input::placeholder {
+     
+     color: black;
+     
+   }
+   .email-input::placeholder {
+     color: black;
+   }
+   
+   .houseNo-input::placeholder {
+     color: black;
+   }
+  
+   .streetName-input::placeholder {
+     color: black;
+   }
+  
+   .area-input::placeholder {
+     color: black;
+   }
+  
+   .pincode-input::placeholder {
+     color: black; 
+   }
+   .state-input::placeholder {
+     color: black;
+   }
+  
+   .nationality-input::placeholder {
+     color: black;
+     
+   }
+  
+   .editecform{
+     min-height: 100vh;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     background-image: linear-gradient(to bottom, #b0e0e6, #b0e0e6);
+     background-color: 50 #b0e0e6;
+     color: white;
+     margin: 1px;
+     font-size: 15px;
+     padding: 5px;
+   }
+   
+   .editenrollform{
+     margin-top: 10px;
+     margin-bottom: 20px;
+     color: black;
+     font-size: 20px;
+   }
+     
+    .enrollformbutton {
+       border-radius: 10px;
+       color: white;
+       background-color: blue;
+       padding: 6px;
+       position: fixed;
+       bottom: 20px;
+       right: 20px;
+       border: none;
+       width: 9%;
+     }
+     .enrollformbutton:hover{
+       color: white;
+       font-weight: bold;
+     }
+     
+     .errorform {
+       font-size: medium;
+       color: red;
+       
+     }
