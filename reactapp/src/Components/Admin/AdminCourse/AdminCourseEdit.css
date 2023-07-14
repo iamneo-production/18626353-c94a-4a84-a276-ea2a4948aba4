@@ -1,0 +1,97 @@
+.updateform-container {
+    background-image: linear-gradient(to bottom,#18a9a6,#a3ada8);
+    height: 780px;
+    width: 500px;
+    border-radius: 20px;
+    margin-left: 520px;
+   }
+   
+  
+     .Acdemo1 input[type="text"],
+    .Acdemo1 input[type="number"]
+    {
+      height : 40px; 
+      width: 350px;
+      text-align: center;
+      justify-content: center;
+      background-color: white;
+      border-radius: 10px;
+      border: 2px solid white;
+      margin-left: 80px;
+      margin-right: 80px;
+      margin-bottom: 10px;
+    }
+  
+    
+    
+    #editCourseDescription {
+      
+      height: 80px; 
+      width: 350px;
+      text-align: center;
+      background-color: white;
+      border: 2px solid white;
+      border-radius: 10px;
+      margin-left: 80px;
+      margin-right: 80px;
+      margin-bottom: 10px;
+      
+    }
+  
+  
+    .instituteSelect{
+      height: 40px; 
+      width: 350px;
+      text-align: center;
+      background-color: white;
+      border: 2px solid white;
+      border-radius: 10px;
+      margin-left: 80px;
+      margin-right: 80px;
+    }
+    
+    .updatereg1{
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+        background-image: linear-gradient(to bottom, #b0e0e6, #b0e0e6);
+    background-color: 50 #b0e0e6;
+      color: white;
+      margin: 1px;
+      font-size: 15px;
+      padding: 5px;
+     
+    }
+    
+    .updatereg2{
+      margin-top: 10px;
+      margin-bottom: 20px;
+      color: black;
+      font-size: 20px;
+    }
+     
+  
+  
+      .Acupdatebtn1{
+        border-radius: 10px;
+        color: white;
+        padding: 6px;
+        background-color: blue;
+        border: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 9%;
+      }
+     
+      .Acupdatebtn1:hover{
+        color:white;
+        font-weight: bold;
+    } 
+      
+      .errors {
+        font-size: medium;
+        color: red;
+       
+      }
