@@ -1,0 +1,60 @@
+body{
+    background-image: linear-gradient(to bottom, #b0e0e6, #b0e0e6);
+    background-color: 50 #b0e0e6;
+  }
+  .container1 {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:1500px;
+    margin-left: 0px;
+  }
+  
+    #root > div:nth-child(2) > div.container{
+      justify-content: center;
+    }
+  
+    .container{
+      padding: 20px;
+    }
+  .usercourse .card {
+      width: 50%;
+      background:rgb(0, 0, 0);
+      
+      color: #fbfbfb;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      text-align: justify;
+    }
+    
+    .suggestions {
+      list-style: none;
+      padding-left: 351px;
+      padding-right: 351px;
+      margin: 0;
+    }
+    
+    .suggestions li {
+      cursor: pointer;
+      padding: 5px;
+      padding-left: 3px;
+      background-color: #f8f8f8;
+      border-bottom: 2px solid #eaeaea;
+    }
+    
+    .suggestions li:hover {
+      background-color: #eaeaea;
+    }
+    .rjy{
+      position: absolute;
+      right: 25px;
+      bottom: 5px;
+    }
+  .amp{
+    padding: 26px;
+  }
+  .card-text:last-child{
+    margin-bottom: 1rem;
+  }
