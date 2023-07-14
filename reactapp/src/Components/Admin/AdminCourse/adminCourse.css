@@ -1,0 +1,190 @@
+*{
+    box-sizing: border-box;
+    
+  }
+  body {
+    margin: 0;
+    background-image: linear-gradient(to bottom, #b0e0e6, #b0e0e6);
+    background-color: 50 #b0e0e6;
+  }
+  
+
+.Actemplate .Acinfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.Actemplate .Accourse-info .first-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Actemplate .Accourse-info .first-row .name {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+ 
+}
+
+.Actemplate .Accourse-info .first-row .icons {
+  display: flex;
+  align-items: center;
+}
+
+
+
+  .AcsearchInput_Container {
+     color: white; 
+    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    
+  }
+  
+  #AcsearchInput {
+    color: rgb(12, 12, 12);
+    background-Color: rgba(250, 246, 246, 0.8);
+    border: 2px solid white;
+    height: 35px;
+    margin: 8px;
+    padding: 10px 30px;
+    width: 350px;
+    
+  }
+  
+  .ActemplateContainer > .AcsearchInput_Container input {
+    width: 70%;
+    padding: 20px;
+    margin: 6% 0;
+    outline: none;
+    border-radius: 5px;
+    
+  }
+  
+  .ActemplateContainer > .AcsearchInput_Container button {
+    color: white;
+    width: 7%;
+    height: 35px;
+    margin: 8px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.8) ; 
+    background-Image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(255, 0, 0, 0.1));
+    border-radius: 5px;
+    padding: 10px 20px;
+    outline: none; 
+    text-align: center;
+   
+     }   
+
+  .AcsearchInput_Container button:hover{
+      color: white;
+      font-weight: bold;
+    }   
+    
+  
+  .ActemplateContainer .Actemplate_Container{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    grid-template-columns: repeat(1, minmax(0, 1fr));  
+    grid-gap: 1%;
+    width: 65%;
+   
+   
+  }
+  
+  .ActemplateContainer .Actemplate_Container .Actemplate{
+   
+    background-color: rgba(0, 0, 0, 0.8);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(255, 0, 0, 0.1));
+    color : white;
+    margin: 10px;
+    padding: 0px 20px;  
+      border: 1%;
+      border-radius: 0px;
+      padding: 2%;
+      margin-left: 5%;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      
+  }
+
+
+  .Actemplate .Accourse-info h6 .label {
+    
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  
+  .Actemplate .Accourse-info h6 .value {
+    
+    font-weight: normal;
+  }
+
+ 
+   .adminCourse-input::placeholder {
+      color: rgb(13, 13, 13);
+  }
+
+  .Acedit-icon {
+      margin-right: 15px; 
+      
+  }
+
+  .Acdelete-icon {
+    margin-left: 15px; 
+    
+  } 
+
+ 
+  .Add-course button:hover{
+    color: white;
+    font-weight: bold;
+  }
+
+  
+ 
+  .Accheckmark-icon {
+    color: black;
+    font-size: 20px;
+   margin-left: 20px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    position: absolute;
+    top: 150px;
+    right: 10px;
+  }
+  
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top-color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+  }
+  
+  .loading-text {
+    display: inline-block;
+    font-weight: bold;
+  }
