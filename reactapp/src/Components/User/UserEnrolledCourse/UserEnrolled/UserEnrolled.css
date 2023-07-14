@@ -1,0 +1,83 @@
+#root > div > div > div.templateContainerec{
+    background-image: linear-gradient(to bottom, #b0e0e6, #b0e0e6);
+    background-color:  #b0e0e6;
+    height: 941px;
+  }
+  
+  #root > div > div > div.templateContainerec > div.template_Containerec > div > div{
+      width: 500px;
+      background: rgb(0, 0, 0);
+    
+      color: #fbfbfb;
+    
+      border-radius: 8px;
+      margin-bottom: 18px;
+      text-align: justify;
+  }
+  
+  #root > div > div > div.templateContainerec > div.template_Containerec{
+    flex-direction: column;
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      text-align: center;
+      height: 941px;
+  }
+  
+  
+  .eccontainer {
+    margin: 10px;
+  }
+  
+  .course-details {
+    padding: 10px;
+  }
+  
+  .templateContainerec .card-text {
+    white-space: pre-line;
+    padding: 20px;
+  }
+  
+  #root>div>div.template_Containerec>div>div>div {
+    flex: 1 1 auto;
+    color: var(--bs-card-color);
+    padding: 0px;
+  }
+  
+  .button-spacing {
+    margin-right: 10px;
+  }
+  
+  .icon-spacing {
+    margin-left: 10px;
+  }
+  
+  #root>div>div.template_Containerec>div>div {
+    width: 500px;
+    background: rgb(0, 0, 0);
+  
+    color: #fbfbfb;
+  
+    border-radius: 8px;
+    margin-bottom: 18px;
+    text-align: justify;
+  }
+  
+  .suggestions {
+    list-style: none;
+    padding-left: 351px;
+    padding-right: 351px;
+    margin: 0;
+  }
+  
+  .suggestions li {
+    cursor: pointer;
+    padding: 5px;
+    padding-left: 3px;
+    background-color: #f8f8f8;
+    border-bottom: 2px solid #eaeaea;
+  }
+  
+  .suggestions li:hover {
+    background-color: #eaeaea;
+  }
