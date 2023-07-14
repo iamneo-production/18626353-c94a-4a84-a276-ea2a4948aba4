@@ -1,0 +1,98 @@
+.st_content{
+    background-image: linear-gradient(to bottom, #b0e0e6, #b0e0e6);
+    background-color: 50 #b0e0e6;
+    height: 941px;
+  }
+  .stu-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 20px;
+  }
+  #root > div.st_content > div.button-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    position: absolute;
+    top: 15%;
+    right: 10px;
+  }
+  .stu-input[type="text"]{
+    padding: 10px 30px;
+    border-radius: 0.25rem;
+    height: 35px;
+    background-color: #e2d2d2;
+    border: 2px solid white;
+    text-emphasis-color: rgb(0,0,0,0.8);
+    border: none;
+    box-shadow: 0 1px 3px rgba(99, 96, 96, 0.288);
+    width: 350px;
+    margin-right: 0.5rem;
+  }
+  .stu-button[type="submit"] {
+    padding: 0.7rem;
+    background-Color: rgb(0, 0, 0, 0.8);
+    background-Image: linear-gradient(to right,  rgba(255, 0, 0, 0.1)); 
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  } 
+  .search-input input[type="text"] {
+    width: 250px;
+    height: 40px;
+    border: 1px solid #e8e2e2;
+    background-color: #e8e2e2;
+    align-items: center;
+    text-align: center;
+    margin-left: 150px;
+    margin-right: 5px;
+  }
+  .st-table{
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    border-radius: 10px;
+    width: 90%;
+    margin-left: 5%;
+    
+  }
+  .st-table th{
+    padding: 10px;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.8);
+     background-image: linear-gradient(to right, rgba(255, 0, 0, 0.1));
+    color: white;
+    font-weight: bold;
+  }
+  .st-table td{
+    padding: 7px;
+    text-align: left;
+    background-color:rgba(0, 0, 0, 0.8);
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0.1));
+    color: white;
+    font-weight: bold;
+  }
+  th,
+  td{
+    text-align: left;
+    padding: 8px;
+    font-size: 15px;
+    border: none;
+    
+  }
+  .add-student-button{
+    background-color: rgba(0, 0, 0, 0.8) ;
+    background-Image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(255, 0, 0, 0.1));
+      color: white;
+      position: fixed;
+      border-radius: 5px;
+      bottom: 20px;
+      right: 20px; 
+  }
+  .add-student-button:hover{
+    color:white;
+    font-size: 20px;
+  }
