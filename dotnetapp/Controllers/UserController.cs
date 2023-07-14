@@ -116,7 +116,8 @@ namespace dotnetapp.Controllers
                                               CourseTiming = c.CourseTiming,
                                               Instituteid = c.InstituteId,
                                               DateofJoining = a.DateofJoining,
-                                              EndDate = a.EndDate
+                                              EndDate = a.EndDate,
+                                              UserId = a.UserId
                                           };
                     return admissionCourse.ToList();
                 });
