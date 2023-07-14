@@ -12,7 +12,6 @@ using dotnetapp.Models;
 namespace dotnetapp.Controllers
 {
     [ApiController]
-    [Route("api/")]
     public class UserController : ControllerBase
     {
         private readonly TestDBContext bc;
@@ -55,11 +54,12 @@ namespace dotnetapp.Controllers
                                                CourseName = c.CourseName,
                                                CourseDescription = c.CourseDescription,
                                                CourseDuration = c.CourseDuration,
-                                               NumberofStudents=c.NumberofStudents,
+                                               NumberofStudents = c.NumberofStudents,
                                                CourseTiming = c.CourseTiming,
                                                Instituteid = c.InstituteId,
                                                DateofJoining = a.DateofJoining,
-                                               EndDate = a.EndDate
+                                               EndDate = a.EndDate,
+                                               UserId = a.UserId
                                            });
 
                     return admissionCourse.ToList();
@@ -74,12 +74,13 @@ namespace dotnetapp.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Error in viewadmission");
+                return StatusCode(500, "Error in viewadmission"+ex.Message);
             }
         }
 
-        [HttpGet("user/viewAdmission")]
-        public async Task<IActionResult> viewAdmission(int userId)
+        [HttpGet]
+        [Route("user/ViewAdmissionby")]
+        public async Task<IActionResult> viewAdmissionby(int userId)
         {
             try
             {
@@ -111,11 +112,12 @@ namespace dotnetapp.Controllers
                                               CourseName = c.CourseName,
                                               CourseDescription = c.CourseDescription,
                                               CourseDuration = c.CourseDuration,
-                                              NumberofStudents=c.NumberofStudents,
+                                              NumberofStudents = c.NumberofStudents,
                                               CourseTiming = c.CourseTiming,
                                               Instituteid = c.InstituteId,
                                               DateofJoining = a.DateofJoining,
-                                              EndDate = a.EndDate
+                                              EndDate = a.EndDate,
+                                              UserId = a.UserId
                                           };
                     return admissionCourse.ToList();
                 });
@@ -129,7 +131,7 @@ namespace dotnetapp.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Error in viewadmisssion");
+                return StatusCode(500, "Error in viewadmisssion"+ex.Message);
             }
         }
 
@@ -142,6 +144,10 @@ namespace dotnetapp.Controllers
                 await bc.SaveChangesAsync();
 
                 var course = bc.CourseModels.Find(courseid);
+                if (course == null)
+                {
+                    return BadRequest("Invalid course ID");
+                }
 
                 var admission = new AdmissionModel
                 {
@@ -166,7 +172,7 @@ namespace dotnetapp.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Error in adding admission");
+                return StatusCode(500, "Error in adding admission"+ ex.Message);
             }
         }
 
@@ -216,7 +222,7 @@ namespace dotnetapp.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Error in editing admission");
+                return StatusCode(500, "Error in editing admission"+ ex.Message);
             }
         }
 
@@ -227,22 +233,33 @@ namespace dotnetapp.Controllers
             {
                 var admission = bc.AdmissionModels.FirstOrDefault(a => a.AdmissionId == admissionId);
 
+                if(admission == null)
+                {
+                    return NotFound("Admission not Found");
+
+                }
+
                 bc.AdmissionModels.Remove(admission);
                 await bc.SaveChangesAsync();
                 return Ok(admissionId);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Error in deleting admission");
+                return StatusCode(500, "Error in deleting admission"+ ex.Message);
             }
         }
 
-        [HttpGet("user/viewStatus")]
-        public async Task<IActionResult> viewStatus(Decimal progresspercentage, int userid, int courseid)
+        [HttpGet]
+        [Route("user/viewStatus11")]
+        public async Task<IActionResult> viewStatus11(Decimal progresspercentage, int userid, int courseid)
         {
             try
             {
                 var admission = bc.AdmissionModels.FirstOrDefault(a => a.UserId == userid && a.CourseId == courseid);
+                if (admission == null)
+                {
+                    return NotFound("No Admission Found");
+                }
 
                 var progress = new ProgressModel
                 {
@@ -253,8 +270,8 @@ namespace dotnetapp.Controllers
                     Timestamp = DateTime.Now
                 };
 
-                bc.ProgressModels.AddAsync(progress);
-                bc.SaveChanges();
+                await bc.ProgressModels.AddAsync(progress);
+                await bc.SaveChangesAsync();
 
                 if (progress == null)
                 {
@@ -264,12 +281,12 @@ namespace dotnetapp.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Error in viewStatus");
+                return StatusCode(500, "Error in viewStatus" + ex.Message);
             }
         }
 
-        [HttpPost("user/viewstatus")]
-        public async Task<IActionResult> ViewStatus(Decimal progresspercentage, int userid, int courseid)
+        [HttpPost("user/viewstatusby")]
+        public async Task<IActionResult> ViewStatusby(Decimal progresspercentage, int userid, int courseid)
         {
             try
             {
@@ -292,7 +309,7 @@ namespace dotnetapp.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Error in creating the Status");
+                return StatusCode(500, "Error in creating the Status" + ex.Message);
             }
         }
 
@@ -302,7 +319,15 @@ namespace dotnetapp.Controllers
             try
             {
                 var progress = bc.ProgressModels.FirstOrDefault(p => p.ProgressId == progressId);
+                if (progress == null)
+                {
+                    return NotFound("No progress found");
+                }
                 var admission = bc.AdmissionModels.FirstOrDefault(a => a.UserId == progress.UserId && a.CourseId == progress.CourseId);
+                if (admission == null)
+                {
+                    return NotFound("No admission found");
+                }
                 progress.ProgressPercentage = progressPercentage;
                 progress.Status = bc.CalculateStatus(progressPercentage, admission.EndDate);
                 progress.Timestamp = DateTime.Now;
@@ -311,7 +336,7 @@ namespace dotnetapp.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Error in UpdateStatus");
+                return StatusCode(500, "Error in UpdateStatus" + ex.Message);
             }
         }
 
@@ -338,7 +363,7 @@ namespace dotnetapp.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Error creating rating for Institute");
+                return StatusCode(500, "Error creating rating for Institute" + ex.Message);
             }
         }
 
@@ -358,7 +383,7 @@ namespace dotnetapp.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Error RateInstitute");
+                return StatusCode(500, "Error RateInstitute"+ex.Message);
             }
         }
 
@@ -376,14 +401,14 @@ namespace dotnetapp.Controllers
                                    Username = u.Username,
                                    Rating = r.Rating,
                                    Comment = r.Comments,
-                                   Date=r.Date,
+                                   Date = r.Date,
                                }).ToList();
 
                 return Ok(ratings);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Error creating ratings");
+                return StatusCode(500, "Error creating ratings"+ ex.Message);
             }
         }
 
@@ -397,12 +422,13 @@ namespace dotnetapp.Controllers
                     var result = from i in bc.InstituteModels
                                  join r in bc.RatingModels on i.InstituteId equals r.InstituteId into ratingGroup
                                  from rg in ratingGroup.DefaultIfEmpty()
-                                 group rg by new { i.InstituteId, i.InstituteName, i.ImageUrl } into g
+                                 group rg by new { i.InstituteId, i.InstituteName, i.ImageUrl, i.InstituteAddress } into g
                                  select new
                                  {
                                      g.Key.InstituteId,
                                      g.Key.InstituteName,
                                      g.Key.ImageUrl,
+                                     g.Key.InstituteAddress,
                                      AverageRating = g.Average(r => r != null ? r.Rating : 0)
                                  };
 
@@ -413,8 +439,27 @@ namespace dotnetapp.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Error in get Average rating");
+                return StatusCode(500, "Error in get Average rating" + ex.Message);
             }
         }
+
+        [HttpGet]
+        [Route("user/ViewAdmission")]
+        public async Task<IActionResult> ViewAdmission()
+        {
+            var admissions = await bc.AdmissionModels.ToListAsync();
+            return Ok(admissions);
+        }
+
+        [HttpGet]
+        [Route("user/viewStatus")]
+        public async Task<IActionResult> viewStatus()
+        {
+            var admissions = await bc.AdmissionModels.ToListAsync();
+            return Ok(admissions);
+        }
+
+
+
     }
 }

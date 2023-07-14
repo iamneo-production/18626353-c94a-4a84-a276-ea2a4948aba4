@@ -8,7 +8,6 @@ using dotnetapp.Models;
 
 namespace dotnetapp.Controllers
 {
-    [Route("api/")]
     [ApiController]
     public class AdminController : ControllerBase
     {
@@ -19,7 +18,8 @@ namespace dotnetapp.Controllers
 
         }
 
-        [HttpGet("admin/viewInstitutes")]
+        [HttpGet]
+        [Route("admin/viewInstitutes")]
         public async Task<IActionResult> viewInstitutes()
         {
             var instcou = await Task.Run(() =>
@@ -48,7 +48,8 @@ namespace dotnetapp.Controllers
             return Ok(instcou);
         }
 
-        [HttpGet("admin/viewCourse")]
+        [HttpGet]
+        [Route("admin/viewCourse")]
         public async Task<IActionResult> ViewCourse()
         {
             var courses = await dc.CourseModels.ToListAsync();
@@ -61,7 +62,8 @@ namespace dotnetapp.Controllers
             return Ok(courses);
         }
 
-        [HttpGet("admin/ViewStudent")]
+        [HttpGet]
+        [Route("admin/ViewStudent")]
 
         public async Task<IActionResult> ViewStudent()
         {
