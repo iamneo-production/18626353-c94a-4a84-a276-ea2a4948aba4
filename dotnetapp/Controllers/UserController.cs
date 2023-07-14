@@ -399,6 +399,7 @@ namespace dotnetapp.Controllers
                                {
                                    UserId = u.UserId,
                                    Username = u.Username,
+                                   RatingId = r.RatingId,
                                    Rating = r.Rating,
                                    Comment = r.Comments,
                                    Date = r.Date,

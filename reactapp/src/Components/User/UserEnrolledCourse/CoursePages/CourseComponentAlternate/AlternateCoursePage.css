@@ -1,0 +1,36 @@
+.HeadingAlt{
+    display: flex;
+    font-family: italic;
+    font-size: 50px;
+    color: aliceblue;
+    text-align: center;
+    padding-top: 10px;
+    padding-left: 18.5%;
+    padding-right: 13.5%;
+}
+.titleMainAlt{
+    padding: 1%;
+    margin-right: 0%;
+}
+.headingAlt{
+    background-color:   rgba(0, 0, 0, 0.8);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(255, 0, 0, 0.1));
+    display: flex;
+}
+.DescriptionStart4{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: orangered;
+    font-size: 50px;
+    text-align: center;
+}
+.Description4{
+    padding-left: 60px;
+    font-size: 20px;
+}
+h3{
+    margin-left: 40px;
+}

@@ -1,0 +1,139 @@
+.rating-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 0px;
+    margin-top: 60px;
+    margin-left: 300px;
+    width: 950px;
+    border-radius:10px;
+    background-color: #18a9a6; 
+  }
+  
+  .rating-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+  }
+  
+  .star {
+    font-size: 20px;
+    color: gold;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .star.filled,
+  .star.gold {
+    color: gold;
+  }
+  .naviii{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 0px;
+    background-color: #18a9a6;
+    margin-top: 60px;
+    margin-left: 300px;
+    width: 950px;
+    border-radius:10px; 
+    
+  }
+  .review-container {
+    
+    
+    /* padding: 20px;
+    border-radius: 10px; */
+    margin-left: 20px;
+    background-color: #18a9a6;
+  }
+  
+  
+  .review-container h3 {
+    margin-bottom: 10px;
+  }
+  h3{
+    padding: 15px;
+  }
+  
+  .comment-box {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    resize: none;
+  }
+  
+  .submit-button {
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .submitted-review {
+    margin-bottom: 20px;
+  }
+  
+  .submitted-review h3 {
+    margin-bottom: 10px;
+  }
+  
+  .reviews-container {
+    max-height: 400px; /* Set a maximum height for the container */
+    overflow-y: auto; /* Enable vertical scroll */
+    width: 100%;
+    background-color: #18a9a6;
+    border-radius:10px; 
+  }
+  
+  .reviews-container h3 {
+    margin-bottom: 10px;
+  }
+  
+  .review {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .review p {
+    margin-bottom: 5px;
+  }
+  span.star {
+    color: black;
+    cursor: pointer;
+  }
+  
+  .filled {
+    color: gold;
+  }
+  
+  .gold {
+    color: gold;
+  }
+  .reviewcomment {
+  margin-top: 8px;
+  font-size: 25px;
+  font-style: italic;
+  }
+  .reviewusername {
+    font-size: 25px;
+    font-weight: bold;
+    width:500px;
+      grid-column-gap: 16px;
+      grid-template-columns: repeat(2,max-content);
+  }
+  .star-rating{
+    display: inline-block;
+  }
+  .bvc{
+    display: inline-flex;
+    position: fixed;
+    right: 100px; 
+    top: 110px;
+  }
+  .reviewdate{
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: lighter;
+  }
