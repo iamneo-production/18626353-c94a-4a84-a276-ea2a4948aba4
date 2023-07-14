@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
+using dotnetapp.Models;
 
 namespace dotnetapp
 {
@@ -28,12 +29,23 @@ namespace dotnetapp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //string connectionString = Configuration.GetConnectionString("myconnstring");
-           // services.AddDbContext<ProductDBContext>(opt => opt.UseSqlServer(connectionString));
+            string connectionString = Configuration.GetConnectionString("myconnstring");
+           services.AddDbContext<TestDBContext>(opt => opt.UseSqlServer(connectionString));
            // services.AddScoped<IProductService, ProductService>();
-            services.AddCors();
+            //services.AddCors();
 
-            services.AddControllers();
+ 
+            //services.AddControllers();
+            services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                builder =>
+                {
+                    builder.AllowAnyOrigin() ;
+                });
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "dotnetapp", Version = "v1" });
@@ -55,6 +67,14 @@ namespace dotnetapp
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(builder =>
+            {
+                builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
 
             app.UseEndpoints(endpoints =>
             {
