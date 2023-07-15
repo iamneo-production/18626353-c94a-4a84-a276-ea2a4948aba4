@@ -48,7 +48,7 @@ const RenderComponent = ()=>{
     else if(course === 'Intermediate & Advanced Boxing'){
       componentToRender = <ProgressBar2/>;
     }
-    else if(course === 'Strength & Conditiong'){
+    else if(course === 'Strength and Conditioning'){
       componentToRender = <ProgressBar3/>;
     }
     else if(course === 'Sparring & Competitive Training'){

@@ -37,7 +37,7 @@ const EditEnrolled = () => {
     const fetchDetails = async () => {
       try {
         const response = await axios.get(
-          `https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/viewAdmission1?admissionId=${edit.admissionId}`
+          `https://8080-caecdafbbaedcbbaecebadafdecbf.project.examly.io/user/viewAdmission1?admissionId=${edit.admissionId}`
         );
         const api = response.data;
         if (api.length > 0) {
@@ -85,7 +85,7 @@ const EditEnrolled = () => {
 
     try {
       await axios.put(
-        `https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/editAdmission/${edit.admissionId}`,
+        `https://8080-caecdafbbaedcbbaecebadafdecbf.project.examly.io/user/editAdmission/${edit.admissionId}`,
         updatedDetails
       );
 
@@ -113,7 +113,7 @@ const EditEnrolled = () => {
     const errors = {};
   
     const validateRequiredField = (fieldName, fieldValue) => {
-      if (!fieldValue || fieldValue.trim() === '') {
+      if (typeof fieldValue !== 'string' || !fieldValue.trim || fieldValue.trim() === '') {
         errors[fieldName] = `${fieldName} is required`;
       }
     };
@@ -126,13 +126,16 @@ const EditEnrolled = () => {
       validateRequiredField(fieldName, fieldValue);
       // Additional email validation logic if needed
     };
+    const validateNumber = (fieldName, value) => {
+      validateField(fieldName, value); // Pass only two arguments to validateField
+    };
   
     validateField('firstName', edit.firstName);
     validateField('lastName', edit.lastName);
     validateField('fatherName', edit.fatherName);
     validateField('motherName', edit.motherName);
     validateField('gender', edit.gender);
-    validateField('age', edit.age);
+    validateNumber('age', edit.age);
     validateEmail('email', edit.email);
     validateField('mobile', edit.mobile);
     validateField('houseNo', edit.houseNo);

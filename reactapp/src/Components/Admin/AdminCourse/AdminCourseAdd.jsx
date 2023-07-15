@@ -75,7 +75,7 @@ const AdminCourseAdd = () => {
   useEffect(() => {
     const fetchInstitutes = async () => {
       try {
-        const response = await axios.get("https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/viewonlyInstitutes");
+        const response = await axios.get("https://8080-caecdafbbaedcbbaecebadafdecbf.project.examly.io/admin/viewonlyInstitutes");
         setInstitutes(response.data);
       } catch (error) {
         Swal.fire('Error', 'Failed to fetch institutes.', 'error');
@@ -92,7 +92,7 @@ const AdminCourseAdd = () => {
       try {
         
         await axios.post(
-          "https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/addCourse",
+          "https://8080-caecdafbbaedcbbaecebadafdecbf.project.examly.io/admin/addCourse",
           {
             courseId: 0, 
             courseName: courseName,

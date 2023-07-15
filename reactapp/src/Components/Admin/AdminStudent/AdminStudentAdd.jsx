@@ -60,13 +60,13 @@ const AddAdminStudent = () => {
     };
 
     const validateNumber = (fieldName, value) => {
-      const numberRegex = /^\d{10}$/;
+      const numberRegex = /^\d{1,2}$/;
       validateField(fieldName, value, numberRegex, 'Please enter a valid number');
     };
 
     const validateAlphaNumeric = (fieldName, value) => {
       const alphaNumericRegex = /^[a-zA-Z0-9\s]+$/;
-      validateField(fieldName, value, alphaNumericRegex, 'Please enter a valid value');
+      validateField(fieldName, value, alphaNumericRegex, 'Please enter a valid age (1-99)');
     };
 
     validateName('firstName', firstName);
@@ -94,7 +94,7 @@ const AddAdminStudent = () => {
     const fetchInstitutes = async () => {
       try {
         const response = await axios.get(
-          "https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/getinstituteCourses"
+          "https://8080-caecdafbbaedcbbaecebadafdecbf.project.examly.io/admin/getinstituteCourses"
         );
         setInstcou(response.data);
       } catch (error) {
@@ -111,7 +111,7 @@ const AddAdminStudent = () => {
     if (validateForm()) {
       try {
         await axios.post(
-          "https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/addStudent",
+          "https://8080-caecdafbbaedcbbaecebadafdecbf.project.examly.io/admin/addStudent",
           {
             firstName,
             lastName,
