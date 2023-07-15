@@ -26,7 +26,7 @@ function EnrolledCourse() {
       return;
     }
 
-    axios.get(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/${encodeURIComponent(email)}`)
+    axios.get(`https://8080-ebfcaeccbabbaecebadafdecbf.project.examly.io/user/${encodeURIComponent(email)}`)
       .then((response) => {
         const userId = response.data.userId;
         if (userId) {
@@ -39,7 +39,7 @@ function EnrolledCourse() {
   };
 
   const getAdmissionData = (userId) => {
-    axios.get(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/ViewAdmissionby?userId=${(userId)}`)
+    axios.get(`https://8080-ebfcaeccbabbaecebadafdecbf.project.examly.io/user/ViewAdmissionby?userId=${(userId)}`)
       .then((result) => {
         // Log the data received from the API
         setAdmission(result.data);
@@ -71,7 +71,7 @@ function EnrolledCourse() {
   const handleDeleteCourse = (admissionId, result) => {
     if (result) { // Check if result is true or not
       axios
-        .delete(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/deleteAdmission/${encodeURIComponent(admissionId)}`)
+        .delete(`https://8080-ebfcaeccbabbaecebadafdecbf.project.examly.io/user/deleteAdmission/${encodeURIComponent(admissionId)}`)
         .then((result) => {
           Swal.fire({
             icon: 'success',
