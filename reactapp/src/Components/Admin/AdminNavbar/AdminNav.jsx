@@ -19,7 +19,7 @@ function AdminHome() {
   useEffect(() => {
     const email = localStorage.getItem("email");
 
-    axios.get(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/${encodeURIComponent(email)}/username`)
+    axios.get(`https://8080-addebfabbbaecebadafdecbf.project.examly.io/${encodeURIComponent(email)}/username`)
       .then((response) => {
         const usernameValue = response.data;
         setUserName(usernameValue);

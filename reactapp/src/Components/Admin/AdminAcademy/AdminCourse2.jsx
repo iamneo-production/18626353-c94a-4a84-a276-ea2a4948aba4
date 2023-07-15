@@ -19,7 +19,7 @@ function AdminCourse2() {
 
   useEffect(() => {
     const fetchCourses = () => {
-      axios.get(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/viewinstcoursebyId/${vdata.courseId}`)
+      axios.get(`https://8080-addebfabbbaecebadafdecbf.project.examly.io/admin/viewinstcoursebyId/${vdata.courseId}`)
         .then(response => {
           setCourses(response.data);
         })
@@ -45,7 +45,7 @@ function AdminCourse2() {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/deleteCourse/${id}`)
+          .delete(`https://8080-addebfabbbaecebadafdecbf.project.examly.io/admin/deleteCourse/${id}`)
           .then((response) => {
             Swal.fire('Deleted!', 'Course has been deleted.', 'success');
           })
@@ -124,7 +124,7 @@ function AdminCourse2() {
       setIsLoading(true);
       try {
         const deleteRequests = selectedCards.map(id => {
-          return axios.delete('https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/deleteCourse/' + id);
+          return axios.delete('https://8080-addebfabbbaecebadafdecbf.project.examly.io/admin/deleteCourse/' + id);
 
         });
 

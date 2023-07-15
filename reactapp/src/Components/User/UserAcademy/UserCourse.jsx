@@ -23,7 +23,7 @@ function UserCourse() {
     try {
       const {instituteId} = location.state;
       const response = await axios.get(
-        `https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/viewinstcoursebyId/${instituteId}`
+        `https://8080-addebfabbbaecebadafdecbf.project.examly.io/admin/viewinstcoursebyId/${instituteId}`
       ); 
       setCourseData(response.data);
       console.log(response.data);
