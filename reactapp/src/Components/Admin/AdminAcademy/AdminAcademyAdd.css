@@ -29,10 +29,7 @@
     font-size: large;
     margin-right: auto;
   }
-  #root > div:nth-child(2) > center > form > h4{
-    color:black;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serifs;
-  }
+
   #academyDescription{
     margin-right: 5px;
     height: 100px; 
