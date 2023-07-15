@@ -66,7 +66,7 @@ const Rating = () => {
     }
 
     axios
-      .get(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/${encodeURIComponent(email)}`)
+      .get(`https://8080-fadaceeecdbbaecebadafdecbf.project.examly.io/user/${encodeURIComponent(email)}`)
       .then((response) => {
         setUserId(response.data.userId);
       })
@@ -75,7 +75,7 @@ const Rating = () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await axios.get(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/GetRatingsForInstitute/${instituteId}`);
+      const response = await axios.get(`https://8080-fadaceeecdbbaecebadafdecbf.project.examly.io/GetRatingsForInstitute/${instituteId}`);
       setReviews(response.data);
     } catch (error) { }
   };
@@ -106,7 +106,7 @@ const Rating = () => {
     };
 
     try {
-      await axios.post('https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/RateInstitute', review);
+      await axios.post('https://8080-fadaceeecdbbaecebadafdecbf.project.examly.io/RateInstitute', review);
       setRating(0);
       setComment('');
       setShowSuccessAlert(true);

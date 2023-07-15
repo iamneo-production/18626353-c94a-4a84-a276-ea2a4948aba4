@@ -13,7 +13,7 @@ const Home4 = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/viewInstitutes");
+        const response = await axios.get("https://8080-fadaceeecdbbaecebadafdecbf.project.examly.io/admin/viewInstitutes");
         const institutes = response.data.slice(0, 9);
         setData(institutes);
       } catch (error) {

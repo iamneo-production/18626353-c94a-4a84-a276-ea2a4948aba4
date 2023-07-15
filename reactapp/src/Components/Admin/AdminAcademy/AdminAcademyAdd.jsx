@@ -78,7 +78,7 @@ const AdminAcademyAdd = () => {
     console.log(AcademyData);
 
     if(AcademyData.academyName!=="" && AcademyData.contactNumber!=="" && AcademyData.imageURL!=="" && AcademyData.email!=="" && AcademyData.academyLocation!=="" && AcademyData.academyDescription!==""){
-      const url = "https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/addInstitute";
+      const url = "https://8080-fadaceeecdbbaecebadafdecbf.project.examly.io/admin/addInstitute";
       axios.post(url,AcademyData).then((result)=>{
         if(result.data==="Academy Added")
         window.location.reload();

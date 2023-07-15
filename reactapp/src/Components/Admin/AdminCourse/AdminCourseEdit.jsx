@@ -22,7 +22,7 @@ const AdminCourseEdit = () => {
   useEffect(() => {
     const fetchCourse = async () => {
       try {
-        const response = await axios.get(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/viewcoursebyCourseId/${course.courseId}`);
+        const response = await axios.get(`https://8080-fadaceeecdbbaecebadafdecbf.project.examly.io/admin/viewcoursebyCourseId/${course.courseId}`);
         setCourse(response.data);
         setSelectedInstituteId(response.data.instituteId);
         setIsLoading(false);
@@ -38,7 +38,7 @@ const AdminCourseEdit = () => {
   useEffect(() => {
     const fetchInstitutes = async () => {
       try {
-        const response = await axios.get("https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/viewonlyInstitutes");
+        const response = await axios.get("https://8080-fadaceeecdbbaecebadafdecbf.project.examly.io/admin/viewonlyInstitutes");
         setInstitutes(response.data);
         
       } catch (error) {
@@ -67,7 +67,7 @@ const AdminCourseEdit = () => {
     };
 
     try {
-       await axios.put(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/editCourse/${course.courseId}`, updatedCourse);
+       await axios.put(`https://8080-fadaceeecdbbaecebadafdecbf.project.examly.io/admin/editCourse/${course.courseId}`, updatedCourse);
       setUpdateSuccess(true);
       Swal.fire({
         icon: 'success',

@@ -87,7 +87,7 @@ useEffect (() => {
         email: email,
         imageUrl:imageURL       
   }
-    axios.put('https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/editInstitute/'+id1,data)
+    axios.put('https://8080-fadaceeecdbbaecebadafdecbf.project.examly.io/admin/editInstitute/'+id1,data)
     .then(response => {
       if(response.data==="academy Edited")
       alert('academy edited');
@@ -105,7 +105,7 @@ useEffect (() => {
     
   };
   const handleEdit = (id1) => {
-    axios.get('https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/viewinstitutebyId/'+id1)
+    axios.get('https://8080-fadaceeecdbbaecebadafdecbf.project.examly.io/admin/viewinstitutebyId/'+id1)
       .then((result) => {
         setAcademyName(result.data.instituteName);
         setContactNumber(result.data.mobile);

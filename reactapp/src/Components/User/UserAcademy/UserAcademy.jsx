@@ -40,7 +40,7 @@ const Viewacademy = () => {
   
 
   React.useEffect(() => {
-    axios.get('https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/Getinstrat')
+    axios.get('https://8080-fadaceeecdbbaecebadafdecbf.project.examly.io/Getinstrat')
       .then(response => {
         setData(response.data);
       })
