@@ -128,9 +128,10 @@ const EditEnrolled = () => {
     };
 
     const validateNumber = (fieldName, value) => {
-      const ageRegex = /^\d{1,2}$/; // Assuming the age should be a number between 1 and 99
-      validateField(fieldName, value, ageRegex, 'Please enter a valid age (1-99)');
-    };
+  const ageRegex = /^\d{1,2}$/; // Assuming the age should be a number between 1 and 99
+  validateField(fieldName, value); // Pass only two arguments to validateField
+};
+
   
     validateField('firstName', edit.firstName);
     validateField('lastName', edit.lastName);
