@@ -42,7 +42,7 @@ function AdminAcademyhome() {
 
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get('https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/viewInstitutes').then((res) => {
+    axios.get('https://8080-afbbeccfcdaebbaecebadafdecbf.project.examly.io/admin/viewInstitutes').then((res) => {
       setData(res.data);
     }).catch((err) => {
       alert(err);
@@ -51,7 +51,7 @@ function AdminAcademyhome() {
 
   const handleDelete = (id) => {
     //Delete Theme Api
-    axios.delete('https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/deleteInstitute/' + id)
+    axios.delete('https://8080-afbbeccfcdaebbaecebadafdecbf.project.examly.io/admin/deleteInstitute/' + id)
       .then(response => {
         if (response.data === "Academy Deleted")
           Swal.fire({
@@ -123,7 +123,7 @@ function AdminAcademyhome() {
     if (result.isConfirmed) {
       try {
         const deleteRequests = selectedCards.map(id => {
-          return axios.delete('https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/deleteInstitute/' + id);
+          return axios.delete('https://8080-afbbeccfcdaebbaecebadafdecbf.project.examly.io/admin/deleteInstitute/' + id);
         });
 
         await axios.all(deleteRequests);

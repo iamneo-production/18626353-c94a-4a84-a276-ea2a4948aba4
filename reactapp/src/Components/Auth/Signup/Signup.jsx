@@ -38,7 +38,8 @@ const Signup = ({ handleSignup }) => {
           userRole,
         };
       
-        const endpoint = 'https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/signup';
+        const endpoint = 'https://8080-afbbeccfcdaebbaecebadafdecbf.project.examly.io/user/signup';
+        
       
         try {
           setIsLoading(true);

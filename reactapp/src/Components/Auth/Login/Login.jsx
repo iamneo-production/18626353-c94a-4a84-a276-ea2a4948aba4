@@ -90,8 +90,8 @@ const Login = () => {
     if (validateForm()) {
       setIsLoading(true);
 
-      const userLoginUrl = 'https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/loginby22';
-      const adminLoginUrl = 'https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/login';
+      const userLoginUrl = 'https://8080-afbbeccfcdaebbaecebadafdecbf.project.examly.io/user/loginby22';
+      const adminLoginUrl = 'https://8080-afbbeccfcdaebbaecebadafdecbf.project.examly.io/admin/login';
 
       await Promise.all([
         loginUser(userLoginUrl, 'User'), // Login user
