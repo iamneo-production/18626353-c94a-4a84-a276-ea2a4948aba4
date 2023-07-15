@@ -22,7 +22,7 @@ const EditStudent = () => {
 
     const fetchStudent = async () => {
       try {
-        const response = await axios.get('https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/viewstudentbyId/'+student.studentId);
+        const response = await axios.get('https://8080-bfbccadaceacbbaecebadafdecbf.project.examly.io/admin/viewstudentbyId/'+student.studentId);
        setStudent(response.data);
        setSelectedInstcou(response.data.courseId)
 
@@ -42,7 +42,7 @@ const EditStudent = () => {
     const fetchInstitutes = async () => {
       try {
         const response = await axios.get(
-          "https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/getinstituteCourses"
+          "https://8080-bfbccadaceacbbaecebadafdecbf.project.examly.io/admin/getinstituteCourses"
         );
         setInstcou(response.data);
       } catch (error) {
@@ -80,7 +80,7 @@ const EditStudent = () => {
 
     };
     try{
-      await axios.put(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/editStudent/${student.studentId}`,updatedStudent);
+      await axios.put(`https://8080-bfbccadaceacbbaecebadafdecbf.project.examly.io/admin/editStudent/${student.studentId}`,updatedStudent);
       setUpdateSuccess(true);
       Swal.fire({
         icon:'success',

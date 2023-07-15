@@ -36,7 +36,7 @@ const ProgressBar6 = () => {
         if (!isFirstRender) {
             const fetchPreviousProgress = async () => {
                 try {
-                    const response = await axios.get(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/viewStatus11?userid=${id}&courseid=${courseId}`);
+                    const response = await axios.get(`https://8080-bfbccadaceacbbaecebadafdecbf.project.examly.io/user/viewStatus11?userid=${id}&courseid=${courseId}`);
                     const previousProgress = parseInt(response.data.progressPercentage);
                     const progressid = response.data.progressId;
                     setStatus(response.data.status);
@@ -82,9 +82,9 @@ const ProgressBar6 = () => {
             // Make an HTTP POST or PUT request to send progress data to the backend
             if (localStorage.getItem(`isFirstRender${courseid}`) === 'true') {
                 localStorage.setItem(`isFirstRender${courseid}`, 'false');
-                await axios.post(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/viewstatusby?progresspercentage=${progress}&userid=${id}&courseid=${courseid}`);
+                await axios.post(`https://8080-bfbccadaceacbbaecebadafdecbf.project.examly.io/user/viewstatusby?progresspercentage=${progress}&userid=${id}&courseid=${courseid}`);
             } else {
-                await axios.put(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/updatestatus/${progressid}?progressPercentage=${progress}`);
+                await axios.put(`https://8080-bfbccadaceacbbaecebadafdecbf.project.examly.io/user/updatestatus/${progressid}?progressPercentage=${progress}`);
             }
         } catch (error) {
             toast.error(error);
