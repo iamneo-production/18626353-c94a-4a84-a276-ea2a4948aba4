@@ -127,14 +127,13 @@ const EditEnrolled = () => {
   
     const validateEmail = (fieldName, fieldValue) => {
       validateRequiredField(fieldName, fieldValue);
-      // Additional email validation logic if needed
     };
   
     const validateNumber = (fieldName, value) => {
-      const ageRegex = /^\d{1,2}$/; // Assuming the age should be a number between 1 and 99
-      validateField(fieldName, value); // Pass only two arguments to validateField
-    };
-    
+  validateField(fieldName, value);
+};
+
+
   
     validateField('firstName', edit.firstName);
     validateField('lastName', edit.lastName);
