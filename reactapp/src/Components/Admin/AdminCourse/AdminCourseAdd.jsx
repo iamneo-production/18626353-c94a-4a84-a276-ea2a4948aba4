@@ -21,12 +21,13 @@ const AdminCourseAdd = () => {
   const validateForm = () => {
     const newErrors = {}; 
 
-    const courseNameRegex = /^[a-zA-Z\s& ]+$/;
+    const courseNameRegex = /^[a-zA-Z&\s]+$/;
     if (!courseName.trim()) {
       newErrors.courseName = 'Course Name is required';
     } else if (!courseNameRegex.test(courseName)) {
       newErrors.courseName = 'Please Enter Valid Course Name';
     }
+    
     
     const enrolledStudentRegex = /^[0-9 ]+$/;
     if (!courseEnrolled.trim()) {
