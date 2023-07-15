@@ -1,27 +1,26 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
-// import AdminAcademyhome from './AdminAcademy/Adminacademy/AdminAcademyhome';
-// import AddAdminAcademy from './AdminAcademy/AdminacademyAddEdit/AdminAcademyAdd';
-// import EditAdminAcademy from './AdminAcademy/AdminacademyAddEdit/AdminAcademyEdit';
-import Signup from './components/auth/Signup';
-import Login from './components/auth/Login';
-// import Adminstudent from './Student/adminstudent1';
-// import Forms from './Student/create';
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import Login from './Components/Auth/Login/Login';
+import Signup from './Components/Auth/Signup/Signup';
+import PrivateRoute from './Components/Auth/auth/PrivateRoutes';
+import AdminBaseComponent from './Components/Admin/AdminBase/AdminBase';
+import UserBaseComponent from './Components/User/UserBase/UserBase';
+
 function App() {
   return (
-    <Router>
-    <Routes>
-        <Route exact path="/" element = {<Login/>}>
-        </Route>
-        <Route exact path="/Signup" element = {<Signup/>}>
-        </Route>
-      </Routes>
-    </Router>
+
+    <div>
+      <Router>
+        <Routes>
+          <Route path='/Admin/*' element={<PrivateRoute element={<AdminBaseComponent />} authRole="Admin" allowedRoles={['Admin']} />} /> 
+           <Route path="/user/*" element={<PrivateRoute element={<UserBaseComponent />} authRole="User" allowedRoles={['User']} />} />
+          
+          <Route exact path="/" element={<Login />} />
+          <Route exact path="/Signup" element={<Signup />} />
+        </Routes>
+      </Router>
+    </div>
+
   );
 }
-
 export default App;

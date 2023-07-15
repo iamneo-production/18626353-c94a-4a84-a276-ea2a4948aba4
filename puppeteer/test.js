@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     try{
-    await page.goto('https://8081-bcebafddeedfbbaecebaaffedabcfcecdb.project.examly.io/');
+    await page.goto('https://8081-bcebafddeedfbbaecebadafdecbf.project.examly.io/');
     await page.setViewport({
       width:1200,
       height:800,
@@ -18,10 +18,10 @@ const puppeteer = require('puppeteer');
       await page.click('#submitButton');
       await page.waitForNavigation();
       await page.waitForSelector('#loginButton',{timeout:3000});
-      console.log('TESTCASE:FE_Signup:success');
+      console.log('TESTCASE:FE_signup:success');
     }
      catch(e){
-      console.log('TESTCASE:FE_Signup:failure');
+      console.log('TESTCASE:FE_signup:failure');
     }finally{
       await page.close();
       await browser.close();
@@ -35,7 +35,7 @@ const puppeteer = require('puppeteer');
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     try{
-    await page.goto('https://8081-bcebafddeedfbbaecebaaffedabcfcecdb.project.examly.io/');
+    await page.goto('https://8081-bcebafddeedfbbaecebadafdecbf.project.examly.io/');
     await page.setViewport({
       width:1200,
       height:800,
@@ -45,10 +45,10 @@ const puppeteer = require('puppeteer');
       await page.click('#loginButton');
       await page.waitForNavigation();
       await page.waitForSelector('#logout',{timeout:3000});
-      console.log('TESTCASE:FE_Login:success');
+      console.log('TESTCASE:FE_login:success');
     }
      catch(e){
-      console.log('TESTCASE:FE_Login:failure');
+      console.log('TESTCASE:FE_login:failure');
     }finally{
       await page.close();
       await browser.close();
@@ -62,7 +62,7 @@ const puppeteer = require('puppeteer');
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     try{
-    await page.goto('https://8081-bcebafddeedfbbaecebaaffedabcfcecdb.project.examly.io/');
+    await page.goto('https://8081-bcebafddeedfbbaecebadafdecbf.project.examly.io/');
     await page.setViewport({
       width:1200,
       height:800,
@@ -76,10 +76,10 @@ const puppeteer = require('puppeteer');
       await page.waitForSelector('#userAcademyGrid1',{timeout:3000});
       await page.click('#userAcademyGrid1');
       await page.waitForSelector('#userCourseGrid1',{timeout:3000});
-      console.log('TESTCASE:FE_UserAcademyOperation:success');
+      console.log('TESTCASE:FE_userAcademyOperation:success');
     }
      catch(e){
-      console.log('TESTCASE:FE_UserAcademyOperation:failure');
+      console.log('TESTCASE:FE_userAcademyOperation:failure');
     }finally{
       await page.close();
       await browser.close();
@@ -91,7 +91,7 @@ const puppeteer = require('puppeteer');
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   try{
-  await page.goto('https://8081-bcebafddeedfbbaecebaaffedabcfcecdb.project.examly.io/');
+  await page.goto('https://8081-bcebafddeedfbbaecebadafdecbf.project.examly.io/');
   await page.setViewport({
     width:1200,
     height:800,
@@ -105,10 +105,10 @@ const puppeteer = require('puppeteer');
     await page.waitForSelector('#enrolledCourse',{timeout:3000});
     await page.click('#logout');
     await page.waitForSelector('#loginButton',{timeout:3000});
-    console.log('TESTCASE:FE_UserEnrolledCourseOperation:success');
+    console.log('TESTCASE:FE_userEnrolledCourseOperation:success');
   }
    catch(e){
-    console.log('TESTCASE:FE_UserEnrolledCourseOperation:failure');
+    console.log('TESTCASE:FE_userEnrolledCourseOperation:failure');
   }finally{
     await page.close();
     await browser.close();
@@ -120,7 +120,7 @@ const puppeteer = require('puppeteer');
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   try{
-  await page.goto('https://8081-bcebafddeedfbbaecebaaffedabcfcecdb.project.examly.io/');
+  await page.goto('https://8081-bcebafddeedfbbaecebadafdecbf.project.examly.io/');
   await page.setViewport({
     width:1200,
     height:800,
@@ -134,10 +134,10 @@ const puppeteer = require('puppeteer');
     await page.waitForSelector('#adminAcademyGrid1',{timeout:3000});
     await page.click('#adminCourse');
     await page.waitForSelector('#courseGrid1',{timeout:3000});
-    console.log('TESTCASE:FE_AdminAcademyCourseOperation:success');
+    console.log('TESTCASE:FE_adminAcademyCourseOperation:success');
   }
    catch(e){
-    console.log('TESTCASE:FE_AdminAcademyCourseOperation:failure');
+    console.log('TESTCASE:FE_adminAcademyCourseOperation:failure');
   }finally{
     await page.close();
     await browser.close();
@@ -149,7 +149,7 @@ const puppeteer = require('puppeteer');
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   try{
-  await page.goto('https://8081-bcebafddeedfbbaecebaaffedabcfcecdb.project.examly.io/');
+  await page.goto('https://8081-bcebafddeedfbbaecebadafdecbf.project.examly.io/');
   await page.setViewport({
     width:1200,
     height:800,
@@ -163,10 +163,10 @@ const puppeteer = require('puppeteer');
     await page.waitForSelector('#addStudent',{timeout:3000});
     await page.click('#logout');
     await page.waitForSelector('#loginButton',{timeout:3000});
-    console.log('TESTCASE:FE_AdminStudentsOperation:success');
+    console.log('TESTCASE:FE_adminStudentsOperation:success');
   }
    catch(e){
-    console.log('TESTCASE:FE_AdminStudentsOperation:failure');
+    console.log('TESTCASE:FE_adminStudentsOperation:failure');
   }finally{
     await page.close();
     await browser.close();
