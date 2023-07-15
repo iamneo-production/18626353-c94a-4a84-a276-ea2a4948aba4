@@ -60,9 +60,10 @@ const AddAdminStudent = () => {
     };
 
     const validateNumber = (fieldName, value) => {
-      const numberRegex = /^\d{10}$/;
-      validateField(fieldName, value, numberRegex, 'Please enter a valid number');
+      const ageRegex = /^\d{1,2}$/; // Assuming the age should be a number between 1 and 99
+      validateField(fieldName, value, ageRegex, 'Please enter a valid age (1-99)');
     };
+
 
     const validateAlphaNumeric = (fieldName, value) => {
       const alphaNumericRegex = /^[a-zA-Z0-9\s]+$/;

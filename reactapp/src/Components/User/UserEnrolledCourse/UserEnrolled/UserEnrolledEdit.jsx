@@ -113,7 +113,7 @@ const EditEnrolled = () => {
     const errors = {};
   
     const validateRequiredField = (fieldName, fieldValue) => {
-      if (!fieldValue || fieldValue.trim() === '') {
+      if (typeof fieldValue !== 'string' || !fieldValue.trim || fieldValue.trim() === '') {
         errors[fieldName] = `${fieldName} is required`;
       }
     };
@@ -126,13 +126,18 @@ const EditEnrolled = () => {
       validateRequiredField(fieldName, fieldValue);
       // Additional email validation logic if needed
     };
+
+    const validateNumber = (fieldName, value) => {
+      const ageRegex = /^\d{1,2}$/; // Assuming the age should be a number between 1 and 99
+      validateField(fieldName, value, ageRegex, 'Please enter a valid age (1-99)');
+    };
   
     validateField('firstName', edit.firstName);
     validateField('lastName', edit.lastName);
     validateField('fatherName', edit.fatherName);
     validateField('motherName', edit.motherName);
     validateField('gender', edit.gender);
-    validateField('age', edit.age);
+    validateNumber('age', edit.age);
     validateEmail('email', edit.email);
     validateField('mobile', edit.mobile);
     validateField('houseNo', edit.houseNo);
