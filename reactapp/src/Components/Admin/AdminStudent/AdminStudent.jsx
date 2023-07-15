@@ -21,7 +21,7 @@ const Adminstudent = () => {
 
   const fetchStudents = () => {
     axios
-      .get( `https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/ViewStudent`)
+      .get( `https://8080-ffbbabbebedcbbaecebadafdecbf.project.examly.io/admin/ViewStudent`)
       .then((response) => {
         setStudents(response.data); 
       })
@@ -41,7 +41,7 @@ const Adminstudent = () => {
   }).then((result) => {
     if (result.isConfirmed) {
       axios
-        .delete(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/deleteStudent/${id}`)
+        .delete(`https://8080-ffbbabbebedcbbaecebadafdecbf.project.examly.io/admin/deleteStudent/${id}`)
         .then((response) => {
           Swal.fire('Deleted!', 'Student has been deleted.', 'success');
           fetchStudents();
@@ -117,7 +117,7 @@ const handleDeleteSelected = async () => {
 
   try {
     const deleteRequests = selectedStudents.map(id=> {
-      return axios.delete('https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/admin/deleteStudent/'+id);
+      return axios.delete('https://8080-ffbbabbebedcbbaecebadafdecbf.project.examly.io/admin/deleteStudent/'+id);
       
     });
 

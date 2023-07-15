@@ -63,14 +63,15 @@ const Forms = () => {
     };
   
     const validateNumber = (fieldName, value) => {
-      const numberRegex = /^\d{10}$/;
-      validateField(fieldName, value, numberRegex, 'Please enter a valid number');
+      const ageRegex = /^\d{1,2}$/; // Assuming the age should be a number between 1 and 99
+      validateField(fieldName, value, ageRegex, 'Please enter a valid age (1-99)');
     };
   
     const validateAlphaNumeric = (fieldName, value) => {
       const alphaNumericRegex = /^[a-zA-Z0-9\s]+$/;
       validateField(fieldName, value, alphaNumericRegex, 'Please enter a valid value');
     };
+    
   
     validateName('firstName', firstName);
     validateName('lastName', lastName);
@@ -129,11 +130,11 @@ const Forms = () => {
         return;
       }
   
-      const userResponse = await axios.get(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/${encodeURIComponent(storedEmail)}`);
+      const userResponse = await axios.get(`https://8080-ffbbabbebedcbbaecebadafdecbf.project.examly.io/user/${encodeURIComponent(storedEmail)}`);
       const userId = userResponse.data.userId;
       const instituteId = vdata.instituteId;
   
-      await axios.post(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/addAdmission/${courseId}/${instituteId}/${userId}`, formData);
+      await axios.post(`https://8080-ffbbabbebedcbbaecebadafdecbf.project.examly.io/user/addAdmission/${courseId}/${instituteId}/${userId}`, formData);
   
       console.log('Form submitted successfully!');
       Swal.fire({
