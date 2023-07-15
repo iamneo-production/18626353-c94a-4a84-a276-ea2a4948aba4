@@ -118,19 +118,23 @@ const EditEnrolled = () => {
       }
     };
   
-    const validateField = (fieldName, fieldValue) => {
+    const validateField = (fieldName, fieldValue, regex = null, errorMessage = null) => {
       validateRequiredField(fieldName, fieldValue);
+      if (regex && !regex.test(fieldValue)) {
+        errors[fieldName] = errorMessage || `${fieldName} is invalid`;
+      }
     };
   
     const validateEmail = (fieldName, fieldValue) => {
       validateRequiredField(fieldName, fieldValue);
       // Additional email validation logic if needed
     };
-
+  
     const validateNumber = (fieldName, value) => {
       const ageRegex = /^\d{1,2}$/; // Assuming the age should be a number between 1 and 99
-      validateField(fieldName, value, ageRegex, 'Please enter a valid age (1-99)');
+      validateField(fieldName, value); // Pass only two arguments to validateField
     };
+    
   
     validateField('firstName', edit.firstName);
     validateField('lastName', edit.lastName);
