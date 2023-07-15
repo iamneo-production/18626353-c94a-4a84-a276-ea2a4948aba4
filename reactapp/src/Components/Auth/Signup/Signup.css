@@ -31,7 +31,6 @@
 #submitButton{
   background-color: #d1e0d1;
   color: #110101;
-  border: none;
   padding: 12px 24px;
   cursor: pointer;
   width: 320px;
@@ -86,7 +85,6 @@
 #signinLink {
   background-color: #d1e0d1;
   color: #110101;
-  border: none;
   padding: 12px 24px;
   cursor: pointer;
   font-weight: bold;

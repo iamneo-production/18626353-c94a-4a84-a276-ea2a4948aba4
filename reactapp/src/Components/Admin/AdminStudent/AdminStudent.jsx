@@ -1,8 +1,6 @@
-import React from 'react';
 import './AdminStudent.css';
-import { useState, useEffect } from 'react';
-import { BsPencilSquare } from 'react-icons/bs';
-import { BsFillTrashFill } from 'react-icons/bs';
+import { useState, useEffect,React } from 'react';
+import { BsPencilSquare,BsFillTrashFill } from 'react-icons/bs';
 import { GrAddCircle } from 'react-icons/gr';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -166,8 +164,7 @@ return (
             .filter((item) => {
               if (searchTerm === '') {
                 return item;
-              } else if (item.firstName &&
-                item.firstName.toLowerCase().includes(searchTerm.toLowerCase())) {
+              } else if (item?.firstName?.toLowerCase().includes(searchTerm.toLowerCase())) {
                 return item;
               } else {
                 return null;

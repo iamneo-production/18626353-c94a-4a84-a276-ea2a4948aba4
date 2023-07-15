@@ -101,115 +101,37 @@ setIsUpdating(false);
   };
 
   const validateForm = () => {
-    const errors = {}; 
-
-    if (!student.firstName) {
-      errors.firstName = 'First Name is required';
-    }
-    else if(!/^[a-zA-Z\s]+$/.test(student.firstName)){
-      errors.firstName = 'Please enter Valid  Name ';
-    }
-    
-    if (!student.lastName) {
-      errors.lastName = 'Last Name is required';
-    }
-    else if(!/^[a-zA-Z\s]+$/.test(student.lastName)){
-      errors.lastName = 'Please enter Valid  Name ';
-    }
-    
-    if (!student.gender) {
-      errors.gender = 'gender is required';
-    }
-    else if(!/^[a-zA-Z\s]+$/.test(student.gender)){
-      errors.gender = 'Please enter Valid gender ';
-    }
-    
-    if (!student.fatherName) {
-      errors.fatherName = 'fatherName is required';
-    }
-    else if(!/^[a-zA-Z\s]+$/.test(student.fatherName)){
-      errors.fatherName = 'Please enter Valid  Name ';
-    }
-
-    if (!student.motherName) {
-      errors.motherName = 'motherName is required';
-    }
-    else if(!/^[a-zA-Z\s]+$/.test(student.motherName)){
-      errors.motherName = 'Please enter Valid mother Name ';
-    }
-
-    if (!student.mobile) {
-      errors.mobile = 'mobile number is required';
-    }
-    else if(!/^[0-9\s]+$/.test(student.mobile)){
-      errors.mobile = 'Please enter Valid mobile number ';
-    }
-
-    if (!student.alternateMobile) {
-      errors.alternateMobile = 'alternate number is required';
-    }
-    else if(!/^[0-9\s]+$/.test(student.alternateMobile)){
-      errors.alternateMobile = 'Please enter Valid alternatemobile ';
-    }
-
-    if (!student.email) {
-      errors.email = 'email is required';
-    }
-    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(student.email)){
-      errors.email = 'Please enter Valid email';
-    }
-
-    if (!student.age) {
-      errors.age = 'age is required';
-    }
-    else if(!/^[0-9\s]+$/.test(student.age)){
-      errors.age = 'Please enter Valid age ';
-    }
-
-    if (!student.houseNo) {
-      errors.houseNo = 'houseNo is required';
-    }
-    else if(!/^[0-9\s]+$/.test(student.houseNo)){
-      errors.houseNo = 'Please enter Valid houseNo ';
-    }
-
-    if (!student.streetName) {
-      errors.streetName = 'streetName is required';
-    }
-    else if(!/^[a-zA-Z\s]+$/.test(student.streetName)){
-      errors.streetName = 'Please enter Valid street Name ';
-    }
-
-    if (!student.areaName) {
-      errors.areaName = 'areaName is required';
-    }
-    else if(!/^[a-zA-Z\s]+$/.test(student.areaName)){
-      errors.areaName = 'Please enter Valid area Name ';
-    }
-
-    if (!student.pincode) {
-      errors.pincode = 'pincode is required';
-    }
-    else if(!/^[0-9\s]+$/.test(student.pincode)){
-      errors.pincode = 'Please enter Valid pincode ';
-    }
-
-    if (!student.state) {
-      errors.state = 'state is required';
-    }
-    else if(!/^[a-zA-Z\s]+$/.test(student.state)){
-      errors.state = 'Please enter Valid state ';
-    }
-    
-    if (!student.nationality) {
-      errors.nationality = 'nationality is required';
-    }
-    else if(!/^[a-zA-Z\s]+$/.test(student.nationality)){
-      errors.nationality = 'Please enter Valid nationality ';
-    }
+    const errors = {};
+  
+    const validateField = (fieldName, label, regex, required = true) => {
+      const value = student[fieldName];
+      if (required && !value) {
+        errors[fieldName] = `${label} is required`;
+      } else if (value && !regex.test(value)) {
+        errors[fieldName] = `Please enter a valid ${label}`;
+      }
+    };
+  
+    validateField('firstName', 'First Name', /^[a-zA-Z\s]+$/);
+    validateField('lastName', 'Last Name', /^[a-zA-Z\s]+$/);
+    validateField('gender', 'Gender', /^[a-zA-Z\s]+$/);
+    validateField('fatherName', 'Father Name', /^[a-zA-Z\s]+$/);
+    validateField('motherName', 'Mother Name', /^[a-zA-Z\s]+$/);
+    validateField('mobile', 'Mobile Number', /^[0-9\s]+$/);
+    validateField('alternateMobile', 'Alternate Mobile Number', /^[0-9\s]+$/);
+    validateField('email', 'Email', /^[a-zA-Z0-9._]+@[a-zA-Z.-]+\.[com]{3,}$/);
+    validateField('age', 'Age', /^[0-9\s]+$/);
+    validateField('houseNo', 'House Number', /^[0-9\s]+$/);
+    validateField('streetName', 'Street Name', /^[a-zA-Z\s]+$/);
+    validateField('areaName', 'Area Name', /^[a-zA-Z\s]+$/);
+    validateField('pincode', 'Pincode', /^[0-9\s]+$/);
+    validateField('state', 'State', /^[a-zA-Z\s]+$/);
+    validateField('nationality', 'Nationality', /^[a-zA-Z\s]+$/);
+  
     setErrors(errors);
-    return Object.keys(errors).length === 0;
+    return Object.values(errors).every((error) => !error);
   };
+  
   const handleSubmit =  (e) => {
     e.preventDefault();
      if (validateForm()) {

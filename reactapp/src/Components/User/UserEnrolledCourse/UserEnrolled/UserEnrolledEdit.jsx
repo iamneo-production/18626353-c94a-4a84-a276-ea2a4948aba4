@@ -111,68 +111,51 @@ const EditEnrolled = () => {
 
   const validateForm = () => {
     const errors = {};
+  
+    const validateRequiredField = (fieldName, fieldValue) => {
+      if (typeof fieldValue !== 'string' || !fieldValue.trim || fieldValue.trim() === '') {
+        errors[fieldName] = `${fieldName} is required`;
+      }
+    };
+  
+    const validateField = (fieldName, fieldValue, regex = null, errorMessage = null) => {
+      validateRequiredField(fieldName, fieldValue);
+      if (regex && !regex.test(fieldValue)) {
+        errors[fieldName] = errorMessage || `${fieldName} is invalid`;
+      }
+    };
+  
+    const validateEmail = (fieldName, fieldValue) => {
+      validateRequiredField(fieldName, fieldValue);
+    };
+  
+    const validateNumber = (fieldName, value) => {
+  validateField(fieldName, value);
+};
 
-    if (!edit.firstName || edit.firstName.trim() === '') {
-      errors.firstName = 'First Name is required';
-    }
 
-    if (!edit.lastName || edit.lastName.trim() === '') {
-      errors.lastName = 'Last Name is required';
-    }
-
-    if (!edit.fatherName || edit.fatherName.trim() === '') {
-      errors.fatherName = 'Father Name is required';
-    }
-
-    if (!edit.motherName || edit.motherName.trim() === '') {
-      errors.motherName = 'Mother Name is required';
-    }
-
-    if (!edit.gender || edit.gender.trim() === '') {
-      errors.gender = 'Gender is required';
-    }
-
-    if (!edit.age) {
-      errors.age = 'Age is required';
-    }
-
-    if (!edit.email || edit.email.trim() === '') {
-      errors.email = 'Email is required';
-    }
-
-    if (!edit.mobile || edit.mobile.trim() === '') {
-      errors.mobile = 'Mobile Number is required';
-    }
-
-    if (!edit.houseNo || edit.houseNo.trim() === '') {
-      errors.houseNo = 'House Number is required';
-    }
-
-    if (!edit.streetName || edit.streetName.trim() === '') {
-      errors.streetName = 'Street Name is required';
-    }
-
-    if (!edit.areaName || edit.areaName.trim() === '') {
-      errors.areaName = 'Area Name is required';
-    }
-
-    if (!edit.state || edit.state.trim() === '') {
-      errors.state = 'State is required';
-    }
-
-    if (!edit.pincode) {
-      errors.pincode = 'Pincode is required';
-    }
-
-    if (!edit.nationality || edit.nationality.trim() === '') {
-      errors.nationality = 'Nationality is required';
-    }
-
+  
+    validateField('firstName', edit.firstName);
+    validateField('lastName', edit.lastName);
+    validateField('fatherName', edit.fatherName);
+    validateField('motherName', edit.motherName);
+    validateField('gender', edit.gender);
+    validateNumber('age', edit.age);
+    validateEmail('email', edit.email);
+    validateField('mobile', edit.mobile);
+    validateField('houseNo', edit.houseNo);
+    validateField('streetName', edit.streetName);
+    validateField('areaName', edit.areaName);
+    validateField('state', edit.state);
+    validateField('pincode', edit.pincode);
+    validateField('nationality', edit.nationality);
+  
     setErrors(errors);
-
+  
     // Return true if there are no errors
     return Object.keys(errors).length === 0;
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();

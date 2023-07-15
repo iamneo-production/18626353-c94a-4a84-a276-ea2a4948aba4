@@ -31,170 +31,123 @@ const Forms = () => {
 
 
 
-    const validateForm = () => {
-    const newErrors = {}; 
+   const validateForm = () => {
+    const newErrors = {};
+  
+    const validateField = (fieldName, value, regex, errorMessage) => {
+      if (!value.trim()) {
+        newErrors[fieldName] = `${fieldName} is required`;
+      } else if (!regex.test(value)) {
+        newErrors[fieldName] = errorMessage;
+      }
+    };
+  
+    const validateName = (fieldName, value) => {
+      const nameRegex = /^[a-zA-Z ]+$/;
+      validateField(fieldName, value, nameRegex, 'Please enter a valid name');
+    };
+  
+    const validatePhoneNumber = (fieldName, value) => {
+      const phoneNumberRegex = /^\d{10}$/;
+      validateField(fieldName, value, phoneNumberRegex, 'Please enter a valid phone number');
+    };
+  
+    const validateAlternatePhoneNumber = (fieldName, value) => {
+      const alternatePhoneNumberRegex = /^\d{10}$/;
+      validateField(fieldName, value, alternatePhoneNumberRegex, 'Please enter a valid alternate phone number');
+    };
+  
+    const validateEmail = (fieldName, value) => {
+      const emailRegex = /^[a-zA-Z0-9._]+@[a-zA-Z.-]+\.[com]{3,}$/;
+      validateField(fieldName, value, emailRegex, 'Please enter a valid email address');
+    };
+  
+    const validateNumber = (fieldName, value) => {
+      const ageRegex = /^\d{1,2}$/; // Assuming the age should be a number between 1 and 99
+      validateField(fieldName, value, ageRegex, 'Please enter a valid age (1-99)');
+    };
 
-    const firstNameRegex = /^[a-zA-Z ]+$/;
-    if (!firstName.trim()) {
-      newErrors.firstName = 'first Name is required';
-    }else if (!firstNameRegex.test(firstName)) {
-      newErrors.firstName = 'Please Enter Valid  Name';
-    }
-    const lastNameRegex = /^[a-zA-Z ]+$/;
-    if (!lastName.trim()) {
-      newErrors.lastName = 'last Name is required';
-    }else if (!lastNameRegex.test(lastName)) {
-      newErrors.lastName = 'Please Enter Valid  Name';
-    }
-    const genderRegex = /^(male|female)$/i; 
-    if (!gender.trim()) {
-      newErrors.gender = 'Gender is required';
-    } else if (!genderRegex.test(gender)) {
-      newErrors.gender = 'Please enter a valid gender';
-    }
-    const fathersNameRegex = /^[a-zA-Z ]+$/;
-    if (!fatherName.trim()) {
-      newErrors.fathersName ="Father's name is required";
-    } else if (!fathersNameRegex.test(fatherName)) {
-      newErrors.fathersName = 'Please enter a valid  name';
-    }
-    const mothersNameRegex = /^[a-zA-Z ]+$/;
-    if (!motherName.trim()) {
-      newErrors.mothersName = "Mother's name is required";
-    } else if (!mothersNameRegex.test(motherName)) {
-      newErrors.mothersName = 'Please enter a valid  name';
-    }
-    const phoneNumberRegex = /^\d{10}$/; 
-    if (!mobile.trim()) {
-     newErrors.phoneNumber = 'Phone Number is required';
-    } else if (!phoneNumberRegex.test(mobile)) {
-     newErrors.phoneNumber = 'Please enter a valid phonenumber';
-    }
-    const alternatePhoneNumberRegex = /^[0-9]+$/;
-    if (!alternateMobile.trim()) {
-      newErrors.alternatePhoneNumber= 'Alternate Phone Number is required';
-    }else if (!alternatePhoneNumberRegex.test(alternateMobile)) {
-      newErrors.alternatePhoneNumber= 'Please Enter  Alternate Phone Number';
-    }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!emailRegex.test(email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-    const ageRegex = /^[0-9]+$/;
-    if (!age.trim()) {
-      newErrors.age = 'Age is required';
-    }else if (!ageRegex.test(age)) {
-      newErrors.age= 'Please Enter Age';
-    }
-    const houseNoRegex = /^[a-zA-Z0-9\s]+$/;
-    if (!houseNo.trim()) {
-     newErrors.houseNo = 'House number is required';
-    } else if (!houseNoRegex.test(houseNo)) {
-     newErrors.houseNo = 'Please enter a valid house number';
-    }
-    const streetNameRegex = /^[a-zA-Z0-9\s]+$/;
-    if (!streetName.trim()) {
-     newErrors.streetName = 'Street name is required';
-    } else if (!streetNameRegex.test(streetName)) {
-     newErrors.streetName = 'Please enter a valid street name';
-    }
-    const areaRegex = /^[a-zA-Z0-9\s]+$/;
-    if (!areaName.trim()) {
-     newErrors.area = 'Area is required';
-    } else if (!areaRegex.test(areaName)) {
-     newErrors.area = 'Please enter a valid area';
-    }
-    const pincodeRegex = /^\d{6}$/; 
-    if (!pincode.trim()) {
-     newErrors.pincode = 'Pincode is required';
-    } else if (!pincodeRegex.test(pincode)) {
-     newErrors.pincode = 'Please enter a valid pincode';
-    }
-    const stateRegex = /^[a-zA-Z\s]+$/;
-    if (!state.trim()) {
-     newErrors.state = 'State is required';
-    } else if (!stateRegex.test(state)) {
-     newErrors.state = 'Please enter a valid state';
-    }
-    const nationalityRegex = /^[a-zA-Z\s]+$/;
-    if (!nationality.trim()) {
-     newErrors.nationality = 'Nationality is required';
-    } else if (!nationalityRegex.test(nationality)) {
-     newErrors.nationality = 'Please enter a valid nationality';
-    }
-    
+  
+    const validateAlphaNumeric = (fieldName, value) => {
+      const alphaNumericRegex = /^[a-zA-Z0-9\s]+$/;
+      validateField(fieldName, value, alphaNumericRegex, 'Please enter a valid value');
+    };
+  
+    validateName('firstName', firstName);
+    validateName('lastName', lastName);
+    validateField('gender', gender, /^(male|female)$/i, 'Please enter a valid gender');
+    validateName('fatherName', fatherName);
+    validateName('motherName', motherName);
+    validatePhoneNumber('mobile', mobile);
+    validateAlternatePhoneNumber('alternateMobile', alternateMobile);
+    validateEmail('email', email);
+    validateNumber('age', age);
+    validateAlphaNumeric('houseNo', houseNo);
+    validateAlphaNumeric('streetName', streetName);
+    validateAlphaNumeric('area', areaName);
+    validateField('pincode', pincode, /^\d{6}$/, 'Please enter a valid pincode');
+    validateAlphaNumeric('state', state);
+    validateAlphaNumeric('nationality', nationality);
+  
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+  
 
 
 
   const handleSubmit = async (e) => {
-    
     e.preventDefault();
-    if (validateForm()) {
-      try {
-        const {vdata} = location.state;
-        const courseId=vdata.courseId;
-        
-        const formData = {
-          firstName,
-          lastName,
-          gender,
-          fatherName,
-          motherName,
-          mobile,
-          alternateMobile,
-          email,
-          age,
-          houseNo,
-          streetName,
-          areaName,
-          pincode,
-          state,
-          nationality,
-          courseId
-          
-        };
-        
-        
+    if (!validateForm()) {
+      return;
+    }
   
-        const storedEmail = localStorage.getItem('email');
-        if (!storedEmail) {
-         
-          return;
-        }
-
-        axios.get(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/${encodeURIComponent(storedEmail)}`)
-          .then((response) => {
-            const userId = response.data.userId;
-            const instituteId=vdata.instituteId;
-            const courseid=vdata.courseId;
-            axios.post(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/addAdmission/${courseid}/${instituteId}/${userId}`, formData)
-              .then((response) => {
-                console.log('Form submitted successfully!', response.data);
-                Swal.fire({
-                  icon: 'success',
-                  title: 'Admission Added',
-                  text: 'The Form has been submitted successfully.',
-                });
-              })
-              .catch((error) => {
-                
-              });
-          })
-          .catch((error) => {
-           
-          });
-      } catch (error) {
-        
+    try {
+      const { vdata } = location.state;
+      const courseId = vdata.courseId;
+  
+      const formData = {
+        firstName,
+        lastName,
+        gender,
+        fatherName,
+        motherName,
+        mobile,
+        alternateMobile,
+        email,
+        age,
+        houseNo,
+        streetName,
+        areaName,
+        pincode,
+        state,
+        nationality,
+        courseId
+      };
+  
+      const storedEmail = localStorage.getItem('email');
+      if (!storedEmail) {
+        return;
       }
-    } else {
-      
+  
+      const userResponse = await axios.get(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/${encodeURIComponent(storedEmail)}`);
+      const userId = userResponse.data.userId;
+      const instituteId = vdata.instituteId;
+  
+      await axios.post(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/addAdmission/${courseId}/${instituteId}/${userId}`, formData);
+  
+      console.log('Form submitted successfully!');
+      Swal.fire({
+        icon: 'success',
+        title: 'Admission Added',
+        text: 'The form has been submitted successfully.',
+      });
+    } catch (error) {
+      console.error(error);
     }
   };
+  
+  
   
   
     

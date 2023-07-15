@@ -70,14 +70,14 @@ const Rating = () => {
       .then((response) => {
         setUserId(response.data.userId);
       })
-      .catch((error) => {});
+      .catch((error) => { });
   };
 
   const fetchReviews = async () => {
     try {
       const response = await axios.get(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/GetRatingsForInstitute/${instituteId}`);
       setReviews(response.data);
-    } catch (error) {}
+    } catch (error) { }
   };
   fetchReviews();
 
@@ -131,9 +131,8 @@ const Rating = () => {
             return (
               <span
                 key={starNumber}
-                className={`star ${starNumber <= (hoverRating || rating) ? 'filled' : ''} ${
-                  starNumber <= rating ? 'gold' : ''
-                }`}
+                className={`star ${starNumber <= (hoverRating || rating) ? 'filled' : ''} ${starNumber <= rating ? 'gold' : ''
+                  }`}
                 onClick={() => setRating(starNumber)}
                 onMouseEnter={() => handleMouseEnter(starNumber)}
                 onMouseLeave={handleMouseLeave}
@@ -160,8 +159,8 @@ const Rating = () => {
           <h3>
             <center>All Reviews</center>
           </h3>
-          {reviews.map((review, index) => (
-            <div key={index} className="review">
+          {reviews.map((review) => (
+            <div key={review.ratingId} className="review">
               <div className='reviewusername'>
                 {review.username}
                 <span className='reviewdate'>{new Date(review.date).toLocaleDateString()}</span>
@@ -172,6 +171,7 @@ const Rating = () => {
               </div>
             </div>
           ))}
+
         </div>
       </div>
       <Modal show={showAlert} onHide={() => setShowAlert(false)} centered>

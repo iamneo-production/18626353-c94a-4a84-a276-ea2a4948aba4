@@ -1,9 +1,8 @@
 import React, {useState ,useEffect} from 'react';
 import './AdminAcademyEdit.css';
 import axios  from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
 
 
 
@@ -19,8 +18,6 @@ import { useNavigate } from 'react-router-dom';
  
   const {id1} = useParams(); 
   const navigate = useNavigate();
-  const handleSubmit=()=>{
-}
 
 useEffect (() => {
   handleEdit(id1) ;
@@ -35,7 +32,7 @@ useEffect (() => {
       newErrors.academyName = 'only enter Alphabets ';
     }
 
-    const phoneRegex = /^[0-9]{10}$/;
+    const phoneRegex = /^\d{10}$/;
     if (!contactNumber.trim()) {
       newErrors.contactNumber = 'ContactNumber is required';
     }else if (!phoneRegex.test(contactNumber)) {
@@ -125,7 +122,7 @@ useEffect (() => {
     <><div>
 
       <center>
-        <form className='AdminAcreg1' onSubmit={handleSubmit}>
+        <form className='AdminAcreg1' >
           <h4 style={{ fontFamily: '-moz-initial', padding: '15px' }}>Edit Academy</h4>
 
           <div className='edit-admin-form-container'>

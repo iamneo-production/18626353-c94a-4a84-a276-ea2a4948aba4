@@ -20,23 +20,29 @@ const Login = () => {
   // Function to validate form inputs
   const validateForm = () => {
     const errors = {};
-    // Validate email field
-    if (!email.trim()) {
-      errors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      errors.email = 'Email is invalid';
-    }
-
-    // Validate password field
-    if (!password.trim()) {
-      errors.password = 'Password is required';
-    }
-
+  
+    const validateField = (fieldName, value) => {
+      if (!value.trim()) {
+        errors[fieldName] = `${fieldName} is required`;
+      }
+    };
+  
+    const validateEmail = (fieldName, value) => {
+      validateField(fieldName, value);
+      if (!errors[fieldName] && !/^[a-zA-Z0-9._]+@[a-zA-Z.-]+\.[com]{3,}$/.test(value)) {
+        errors[fieldName] = 'Email is invalid';
+      }
+    };
+  
+    validateEmail('email', email);
+    validateField('password', password);
+  
     setErrorMessage(errors); // Update the state with errors
-
+  
     // Return true if there are no errors, false otherwise
     return Object.keys(errors).length === 0;
   };
+  
 
   // Handle sign up button click
   const handleSignup = () => {

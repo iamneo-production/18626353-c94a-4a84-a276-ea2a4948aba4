@@ -93,9 +93,7 @@ function EnrolledCourse() {
 
 
   const filteredAdmission = admission.filter((val) => {
-    if (searchTerm === "") {
-      return val;
-    } else if (val.courseName.toLowerCase().includes(searchTerm.toLowerCase())) {
+    if (searchTerm === "" || val.courseName.toLowerCase().includes(searchTerm.toLowerCase())) {
       return val;
     }
     return null;

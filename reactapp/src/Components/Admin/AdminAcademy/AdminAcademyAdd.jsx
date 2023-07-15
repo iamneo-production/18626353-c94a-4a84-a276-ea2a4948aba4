@@ -25,7 +25,7 @@ const AdminAcademyAdd = () => {
       newErrors.academyName = 'only enter Alphabets ';
     }
 
-    const phoneRegex = /^[0-9]{10}$/;
+    const phoneRegex = /^\d{10}$/;
     if (!contactNumber.trim()) {
       newErrors.contactNumber = 'ContactNumber is required';
     }else if (!phoneRegex.test(contactNumber)) {

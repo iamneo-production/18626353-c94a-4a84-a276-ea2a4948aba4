@@ -29,10 +29,7 @@
     font-size: large;
     margin-right: auto;
   }
-  #root > div:nth-child(2) > center > form > h4{
-    color:black;
-    font-family: i=Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serifs;
-  }
+
   #academyDescription{
     margin-right: 5px;
     height: 100px; 
@@ -42,11 +39,7 @@
     border: 2px solid white;
     border-radius: 20px;
   }
-  .add-admin-form-container {
-    margin-left: 90px;
-    width: 350px;
-    border-radius: 80px;
-  }
+
   
   ::placeholder {
     font-family: Arial, sans-serif;
@@ -72,7 +65,7 @@
   .add-admin-form-container{
     margin-left: 10px;
       width: 500px;
-      background-image: linear-gradient(to bottom,#067a78,#a3ada8);
+      background-image: linear-gradient(to bottom,#18a9a6,#a3ada8);
       /* background-image: linear-gradient(to bottom,#067a78,#a3ada8); */
       border-radius: 20px;
       height: 870px;
