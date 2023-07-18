@@ -17,7 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer,toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import sss from './boxinglogo.png';
+
 
 const ProgressBar9 = () => {
   const [progress, setProgress] = useState(0);
@@ -39,7 +39,7 @@ const ProgressBar9 = () => {
       if (!isFirstRender) {
         const fetchPreviousProgress = async () => {
           try {
-            const response = await axios.get(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/viewStatus11?userid=${id}&courseid=${courseId}`);
+            const response = await axios.get(`https://8080-cfaccffccfbbaecebadafdecbf.project.examly.io/user/viewStatus11?userid=${id}&courseid=${courseId}`);
             const previousProgress = parseInt(response.data.progressPercentage);
             const progressid = response.data.progressId;
             setStatus(response.data.status);
@@ -68,7 +68,7 @@ const ProgressBar9 = () => {
       clearInterval(timer);
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps 
     }, []);
 
     const handleBeforeUnload=(event)=>{
@@ -84,9 +84,9 @@ const ProgressBar9 = () => {
       // Make an HTTP POST or PUT request to send progress data to the backend
       if (localStorage.getItem(`isFirstRender${courseid}`) === 'true') {
         localStorage.setItem(`isFirstRender${courseid}`, 'false');
-        await axios.post(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/viewstatusby?progresspercentage=${progress}&userid=${id}&courseid=${courseid}`);
+        await axios.post(`https://8080-cfaccffccfbbaecebadafdecbf.project.examly.io/user/viewstatusby?progresspercentage=${progress}&userid=${id}&courseid=${courseid}`);
       } else {
-        await axios.put(`https://8080-bcebafddeedfbbaecebadafdecbf.project.examly.io/user/updatestatus/${progressid}?progressPercentage=${progress}`);
+        await axios.put(`https://8080-cfaccffccfbbaecebadafdecbf.project.examly.io/user/updatestatus/${progressid}?progressPercentage=${progress}`);
       }
     } catch (error) {
       toast.error(error);
