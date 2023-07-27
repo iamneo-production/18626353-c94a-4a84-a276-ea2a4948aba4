@@ -1,0 +1,124 @@
+.addform-container {
+    margin-left: 520px;
+    width: 500px;
+    background-image: linear-gradient(to bottom,#18a9a6,#a3ada8);
+    border-radius: 20px;
+    height: 980px;
+    margin-top: 20px;
+  }
+  
+  
+  .Acdemo {
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+  
+  .Acdemo input[type="text"],
+  .Acdemo input[type="number"]
+  {
+    height : 40px; 
+    width: 350px;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    
+  }
+  .Acdemo input[type="text"]
+  {
+    margin-right: 200px;
+    border: 2px solid white;
+    
+  }
+  .Acdemo input[type="number"] {
+    margin-right: 200px;
+    margin-left: 0px;
+    border: 2px solid white;
+    
+  }
+  
+  
+  
+  
+  .name-input::placeholder {
+    color: black;
+  
+  }
+  
+  .duration-input::placeholder {
+    color: black;
+  }
+  
+  .timing-input::placeholder {
+    color: black;
+  }
+  
+  .enrolled-input::placeholder {
+    color: black;
+  }
+  
+  .description-input::placeholder {
+    color: black;
+    
+  }
+  
+  
+  
+  #courseDescription {
+    
+    margin-right: 190px;
+    height: 80px; 
+    width: 350px;
+    text-align: center;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    
+  }
+  
+  .addreg1{
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(to bottom, #b0e0e6, #b0e0e6);
+    background-color: 50 #b0e0e6;
+    color: white;
+    margin: 1px;
+    font-size: 15px;
+    padding: 5px;
+  }
+  
+  .addreg2{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: black;
+    font-size: 20px;
+  }
+    
+   
+  
+    .Acaddbtn1 {
+      border-radius: 10px;
+      color: white;
+      background-color: blue;
+      padding: 6px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      border: none;
+      width: 9%;
+    }
+    .Acaddbtn1:hover{
+      color: white;
+      font-weight: bold;
+    }
+    
+    .error {
+      font-size: medium;
+      color: red;
+      
+    }
